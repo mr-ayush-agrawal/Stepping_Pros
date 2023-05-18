@@ -5,7 +5,7 @@ This is a kind of guessing game where you have to guess the English word in a gi
 
 The aim of the game is **SAVE THE HANGING MAN**
 
-More Rules would be updated later.
+The [Rules](./Rules.py) of the game will be displayed each time when the player start the game.
 
 ## About the Project
 This is a game which I am making as a guided work. The reference is taken form this video of [Free Code Camp](https://www.youtube.com/watch?v=8ext9G7xspg&list=WL) Project - 5
@@ -16,3 +16,5 @@ The game would be in python as I am looking forward to strong my concepts in the
 I will start writing the code. Currently I think the code in my head and leave it there only. This shall help me to work with this.
 
 I haven't written any effictive code in python. As I have learned this language recently. This will help me to gain confidence in the language.
+
+Working with multiple source code files. I have crated a long program but never worked with the multiple file having the source code for a single program.
