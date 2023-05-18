@@ -5,6 +5,7 @@ from words import RandWord
 from functions import *
 import Rules
 import string
+import time
 
 def hangman():
     word = RandWord().upper()
@@ -39,11 +40,13 @@ def hangman():
 # Also thinking to add the timmer for better experience (time taken to guess the word)
 Rules.Rules()
 play = True
-while play :
+while play is True :
+    start = time.time()
     hangman()
-    ch = input('\nDo you want to play again press (Y/y)' )[0]
+    print('Time took is : ', round(time.time()-start,2), 'sec')
+    ch = input('\nDo you want to play again press (Y/y) ')[0]
     if ch in ['Y','y'] :
         pass
     else :
         print('Exiting the Game')
-        paly = False
+        play = False

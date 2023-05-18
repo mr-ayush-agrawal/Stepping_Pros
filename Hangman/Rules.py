@@ -5,4 +5,4 @@ def Rules():
     print('Each time when you enter any letter if it is present in the word then\nall the instences of that letter will be updated else it would cost you a life')
     print('You can enter the letter in any case ')
     print('If you input the string then only the first letter would be consider for the game')
-    input("\nPress any key to continue")
+    input("\nPress any key to continue ")
