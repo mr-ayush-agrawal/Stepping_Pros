@@ -16,12 +16,19 @@ def getInfo():
     else :
         name = 'Computer'
 
+    if mode == 2 :
+        name = input("\nEnter the name of the player 2 : ")
+    else :
+        name = 'Computer'
+
     if sym == 'X':
         sym = 'O'
     else:
         sym = 'X'
 
+
     players.append(Player(name,sym))
+
 
 def printWinner(Winner):
     print("\n\nGAME OVER!!")
