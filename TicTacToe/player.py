@@ -1,25 +1,36 @@
 import Board as b
+import random as rd
+import time as t
 
 class Player:
     def __init__(self,name,symbol):
         self.name=name
         self.symbol=symbol
     
-    def move(self,Board):
+    def move(self,Board,mode):
         Board.show_Board()
         print('\nIts {}\'s Move'.format(self.name))
         idx = None
         while(True):
+            # Setting Computers move in auto mode
+            if mode==1 and self.name=='Computer':
+                while True :
+                    idx = rd.randint(1,10) 
+                    if not Board.is_safe(idx-1):
+                        print (idx)
+                        continue
+                    else :
+                        t.sleep(2.5)
+                        break
+                break
 
-            # Do soethinng for non int value
+
             try:
                 idx=int(input("Enter the location Move "))
             except:
                 print("Enter the valid Value in Numberical format")
                 continue
-            
-            # print("The move is ", idx)            
-            
+
             if not Board.is_safe(idx-1):
                 print("This Place is ALready filled")
                 continue
@@ -31,8 +42,8 @@ class Player:
         
 ''' 
 This is the Test of the file        
-P=Player("name", 'X')
+P=Player("Computer", 'X')
 frame=b.Board()
-P.move(frame)
+P.move(frame,1)
 frame.show_Board()
 '''
