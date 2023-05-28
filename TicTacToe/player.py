@@ -1,4 +1,4 @@
-import Board as b
+
 import random as rd
 import time as t
 
@@ -17,13 +17,12 @@ class Player:
                 while True :
                     idx = rd.randint(1,10) 
                     if not Board.is_safe(idx-1):
-                        print (idx)
                         continue
                     else :
+                        print("Computer is Playing at ",idx)
                         t.sleep(2.5)
                         break
                 break
-
 
             try:
                 idx=int(input("Enter the location Move "))

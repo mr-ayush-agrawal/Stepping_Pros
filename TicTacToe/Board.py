@@ -30,21 +30,21 @@ class Board:
         # Horizontal
         for i in range(0,9,3):
             if self.__locs[i]==self.__locs[i+1] and self.__locs[i]== self.__locs[i+2] and self.__locs[i] != ' ':
-                print(i,'Horizontal')
+                # print(i,'Horizontal')
                 return True
         
         # Vertical
         for i in range(0,3):
             if self.__locs[i]==self.__locs[i+3] and self.__locs[i]== self.__locs[i+6] and self.__locs[i] != ' ':
-                print(i,'Vertical')
+                # print(i,'Vertical')
                 return True
         
         # Diagonals
         if self.__locs[0]==self.__locs[4] and self.__locs[0]== self.__locs[8] and self.__locs[4] != ' ':
-            print(i,'Dia 1')
+            # print(i,'Dia 1')
             return True
         elif self.__locs[2]==self.__locs[4] and self.__locs[2]== self.__locs[6] and self.__locs[4] != ' ':
-            print(i,'Dia 2')
+            # print(i,'Dia 2')
             return True
            
         return False
