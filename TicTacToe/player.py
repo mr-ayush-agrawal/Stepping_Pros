@@ -15,7 +15,7 @@ class Player:
             # Setting Computers move in auto mode
             if mode==1 and self.name=='Computer':
                 while True :
-                    idx = rd.randint(1,10) 
+                    idx = rd.randint(1,9) 
                     if not Board.is_safe(idx-1):
                         continue
                     else :
