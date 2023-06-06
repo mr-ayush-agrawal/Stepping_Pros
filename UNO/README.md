@@ -5,7 +5,7 @@ This is a card game. These Uno Cards have the Colors as the suite. It has the Nu
 
 The aim of the game is **Finish Your Cards ASAP**
 
-The [Rules](./Rules.cpp) of the game will be displayed each time when the player start the game. And You Can Type `Rule` or `Rules` any time of the Game to Refer the Rules.
+The [Rules](./Info.cpp) of the game will be displayed each time when the player start the game. And You Can Type `Rule` or `Rules` any time of the Game to Refer the Rules.
 
 ## About the Project
 This is a game which I am making as a Personal work. There is no reference which I am currently following.<br>
