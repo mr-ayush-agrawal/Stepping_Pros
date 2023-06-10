@@ -12,6 +12,7 @@ Some Basic Projects Some day in life if I have time and I need to revise the stu
 
 ### Far future
 
+- **Call Breake** -> Single player mode of the card game
 - **Markov Chain Text Composer** -> FCC -> 12 Bigneer Projcts (Pro 12)
 - **Minesweeper** -> 12 Bigneer Projects (Pro 8) -> FCC
 
