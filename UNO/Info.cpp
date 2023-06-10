@@ -53,5 +53,4 @@ void how_to_play()
    
     cout<<"\n\n";
     system("pause");
-
 }
