@@ -1,31 +1,11 @@
 // This will be converted to the header file later Untill test its a cpp file
-
-#include <iostream>
 #include <vector>
 #include <stdlib.h>
 #include <time.h>
+#include "cards.h"
 
-using namespace std;
 
-class cards
-{
-    string color; // This is the suite of the card
-    char face;    // The Value of the card is teh face of the card
 
-public:
-    cards(string clr, char num)
-    {
-        this->color = clr;
-        this->face = num;
-    }
-
-    void show()
-    {
-        // This Function is temporary
-        cout << "\n"
-             << color << "\t-> " << face;
-    }
-};
 /*
 THE CARDS NUMBERS WILL BE AS FOLLOWS :
 0-9 -> Will be same as 0-9 respectively
@@ -64,11 +44,11 @@ void suffleDeck(vector<cards> &deck)
     }
 }
 
-int main()
+/*int main()
 {
     vector<cards> deck = CreateDeck();
     suffleDeck(deck);
     for (cards c : deck)
         c.show();
     return 0;
-}
+}*/
