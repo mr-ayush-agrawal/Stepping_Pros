@@ -4,8 +4,6 @@
 #include <time.h>
 #include "cards.h"
 
-
-
 /*
 THE CARDS NUMBERS WILL BE AS FOLLOWS :
 0-9 -> Will be same as 0-9 respectively
@@ -43,6 +41,7 @@ void suffleDeck(vector<cards> &deck)
         swap(deck[i],deck[rand()%sz]);
     }
 }
+
 
 /*int main()
 {
