@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 
 #include "cards.h"
 #include <vector>
