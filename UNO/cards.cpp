@@ -5,6 +5,7 @@
 #include "cards.h"
 
 /*
+/*  CARDS Show List
 THE CARDS NUMBERS WILL BE AS FOLLOWS :
 0-9 -> Will be same as 0-9 respectively
 S -> For the Skip
@@ -42,6 +43,11 @@ void suffleDeck(vector<cards> &deck)
     }
 }
 
+void cards::show()
+{
+    // This Function is temporary
+    cout << "\n"<< color << "\t-> " << face;
+}
 
 /*int main()
 {
