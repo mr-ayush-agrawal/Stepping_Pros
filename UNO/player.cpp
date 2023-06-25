@@ -1,14 +1,15 @@
 #include "player.h"
 
-void player :: draw(cards NewCard)
-{
-    inHand.emplace_back(NewCard);
-}
+// void player :: draw(cards NewCard)
+// {
+//     inHand.emplace_back(NewCard);
+// }
 
-void player :: move(cards Top)
-{
-    
-}
+// void player :: move(cards &Top,int idx)
+// {
+//     Top=inHand[idx];
+//     inHand.erase(inHand.begin() + idx);
+// }
 
 void player :: showHand()
 {

@@ -1,52 +1,64 @@
 // #include "cards.cpp"
 #include "cards.h"
 #include "player.h"
-#include "GameFiles.h"
+#include <time.h>
+#include "Info.cpp"
 
 using namespace std;
 
 vector<cards> CreateDeck();
-void suffleDeck(vector<cards> &deck) ;
+void suffleDeck(vector<cards> &deck);
 
+void TestMove()
+{
+    vector<cards> D = CreateDeck();
+    suffleDeck(D);
+    srand(time(0));
+    player P;
+    for (int i = 0; i < 7; i++)
+    {
+        int R = rand() % D.size();
+        cards RanCar = D.at(R);
+        D.erase(D.begin() + R);
+        P.draw(RanCar);
+    }
+    P.showHand();
+
+    cards Top = D.back();
+    D.pop_back();
+
+    cout << "\n\nTop Card is ";
+    Top.show();
+
+    P.move(Top, 5);
+    P.showHand();
+    cout << "\n\nTop Card is ";
+    Top.show();
+}
 
 int main()
 {
-    // player p;
-    cards c1("wrteew",'d');
-    cards c2("feew",'g');
-    cards c3("wrew",'a');
-    cards c4("dsgfasd",'f');
 
-    c1.show();
+    // int NumberOfPlayer = starting_Game();
+    // player p[NumberOfPlayer];
+    vector<cards> Deck = CreateDeck();
+    // suffleDeck(Deck);
 
-    // p.draw(c1);
-    // p.draw(c2);
-    // p.draw(c3);
-    // p.draw(c4);
+    // for(int i=0; i<Deck.size();i++)
+    // {
+    //     p[i%NumberOfPlayer].draw(Deck[i]);
+    // }
+    // for(int i=0; i<NumberOfPlayer;i++)
+    // {
+    //     cout<<"\nCards with player "<<i<<" are";
+    //     p[i].showHand();
+    // }
 
-    // p.showHand();
-
-    vector<cards> deck = CreateDeck();
-    for (cards c : deck)
+    for (cards c : Deck)
         c.show();
 
-    cout<<"asdfhsadhfkasdhfsdhfisduhf";
-    
-    suffleDeck(deck);
-        for (cards c : deck)
-        c.show();
-
-    return 0;
+    // TestMove();
 }
-
-
-
-
-
-
-
-
-
 
 vector<cards> CreateDeck()
 {
@@ -60,18 +72,26 @@ vector<cards> CreateDeck()
         for (int j = 0; j < clrsize; j++)
         {
             // Creating thje card and Pusding it in a Vector
-            cards c(clrs[j], nums[i]);
-            deck.push_back(c);
+            if (nums[i] == 'W' || nums[i] == 'F')
+            {
+                cards c("Black", nums[i]);
+                deck.push_back(c);
+            }
+            else
+            {
+                cards c(clrs[j], nums[i]);
+                deck.push_back(c);
+            }
         }
     }
     return deck;
 }
 
-void suffleDeck(vector<cards> &deck) 
+void suffleDeck(vector<cards> &deck)
 {
     srand(time(0));
-    for (int i=0,sz=deck.size(); i<sz;i++)
+    for (int i = 0, sz = deck.size(); i < sz; i++)
     {
-        swap(deck[i],deck[rand()%sz]);
+        swap(deck[i], deck[rand() % sz]);
     }
 }
