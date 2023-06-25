@@ -15,7 +15,9 @@ int starting_Game();
 
 void rules()
 {
-    cout << "\n\nRules of This UNO Game\n";
+    system("cls");
+
+    cout << "\nRules of This UNO Game\n";
     cout << "\nStarting :";
     cout << "\nYou have to select the number of players that are willing to play the game (It should be between 3 to 5)";
     cout << "\n7 UNO cards will be distributed to all the players at begning which may or may not contain the POWER CARDS";
@@ -47,6 +49,8 @@ void rules()
 
 void how_to_play()
 {
+    system("cls");
+
     cout << "\n\nHow to Play/Move\n";
     cout << "\nThere would be index number would be present with the Cards. Enter the Index number to move that card";
     cout << "\nTo See the rules Press -1 at any time of the game";
@@ -58,8 +62,16 @@ void how_to_play()
 
 int starting_Game()
 {
+    system("cls");
+    bool flag=false;
     int Player;
-    cout << "Enter The number of Players to Play the gamen\n";
-    cin >> Player;
+    do
+    {
+        if (flag)
+            cout<<"Numbers of players can be either of 3,4,5\n";
+        cout << "Enter The number of Players to Play the game\n";
+        cin >> Player;
+        flag = true;
+    }while(Player<3 || Player >5);
     return Player;
 }
