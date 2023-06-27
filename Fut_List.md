@@ -4,10 +4,9 @@ Some Basic Projects Some day in life if I have time and I need to revise the stu
 
 ### Near future
 
-- **UNO Console** -> Self in C++ -> *Comming Soon*
 - **Suduko Solver** -> I have this i C++ but thinking to do in Python too -> *May be Come Soon*
+- **UNO Console** -> Self in C++ -> *Comming Soon*
 - **Photo Processing** -> FCC -> 12 Bigneer Projcts (Pro 11)
-- **Split Wise** -> Split wise cinsole clone
 <br>
 
 ### Far future
