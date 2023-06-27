@@ -5,6 +5,7 @@ using namespace std;
 void rules();
 void how_to_play();
 int starting_Game();
+void PowerCards();
 
 // int main()
 // {
@@ -29,14 +30,7 @@ void rules()
     cout << "\nIf a player is unnable to play he/she gets a card form the deck and may play the card if possible";
     cout << "\nAt a time player is allowed to play atmost 1 card";
 
-    cout << "\nPOWER CARDS:";
-    cout << "\nEach Power Card has a specific purpose which influence the order of the game. These are as follows";
-    cout << "\n1. REVERSE CARD (<->) : This Reverses the order of the Move";                                                                                                                // Alt 8989
-    cout << "\n2. SKIP CARD (X) : The move of next player is cancled and passed";                                                                                                           //
-    cout << "\n3. DRAW 2 CARD (+2) : The Next Player Picks 2 cards form the deck and the move is skip[ed for the reciver";                                                                  //
-    cout << "\n4. DRAW 4 CARD (+4) : The Next Player Picks 4 cards form the deck, move of the reciver also gets skipped and the player who played the card can call the color of the deck"; //
-    cout << "\n5. WILD CARD (_) : The Player call the color of the deck and next plater has to play the color";                                                                             //
-    cout << "Remember the stacking of power cards is not allowed. That means If a power card is played then the next player has to follow it";
+    PowerCards();
 
     cout << "\nGame Over:";
     cout << "\nThe Aim of the game is to finish your cards ASAP";
@@ -53,11 +47,13 @@ void how_to_play()
 
     cout << "\n\nHow to Play/Move\n";
     cout << "\nThere would be index number would be present with the Cards. Enter the Index number to move that card";
+    cout << "\nTo Draw a Card form Deck Press (<last index> + 1) at any time of the game";
     cout << "\nTo See the rules Press -1 at any time of the game";
-    cout << "\nTo See How to play Press -2 at any time of the game";
+    cout << "\nTo See Power Cards Press -2 at any time of the game";
+    cout << "\nTo See Cards Remaining in Deck Press -3 at any time of the game";
 
     cout << "\n\n";
-    system("pause");
+    // system("pause");
 }
 
 int starting_Game()
@@ -74,4 +70,16 @@ int starting_Game()
         flag = true;
     }while(Player<3 || Player >5);
     return Player;
+}
+
+void PowerCards()
+{
+    cout << "\nPOWER CARDS:";
+    cout << "\nEach Power Card has a specific purpose which influence the order of the game. These are as follows";
+    cout << "\n1. REVERSE CARD (<->) : This Reverses the order of the Move";                                                                                                                // Alt 8989
+    cout << "\n2. SKIP CARD (X) : The move of next player is cancled and passed";                                                                                                           //
+    cout << "\n3. DRAW 2 CARD (+2) : The Next Player Picks 2 cards form the deck and the move is skip[ed for the reciver";                                                                  //
+    cout << "\n4. DRAW 4 CARD (+4) : The Next Player Picks 4 cards form the deck, move of the reciver also gets skipped and the player who played the card can call the color of the deck"; //
+    cout << "\n5. WILD CARD (_) : The Player call the color of the deck and next plater has to play the color";                                                                             //
+    cout << "Remember the stacking of power cards is not allowed. That means If a power card is played then the next player has to follow it";
 }

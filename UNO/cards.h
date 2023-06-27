@@ -1,9 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include <string.h>
+#include <strings.h>
 #include <vector>
 using namespace std;
+
+// bool stringComp(string,string);
 
 class cards
 {
@@ -16,12 +18,36 @@ public:
         this->color = clr;
         this->face = num;
     }
+    string getColor()
+    {
+        return color;
+    }
+    char getNum()
+    {
+        return face;
+    }
     void show()
     {
         // This Function is temporary
-        cout << "\n"<< color << "\t-> " << face;
+        cout << "\n"
+             << color << "\t-> " << face;
+    }
+    bool isValidMove(cards Top)
+    {
+        // if (!strcmp("Black", color))
+        if (!this->color.compare("Black"))
+            return true;
+        // else if (!strcmp(Top.getColor(), color))
+        else if (!this->color.compare(Top.getColor()))
+            return true;
+        else if (Top.getNum()==this->face)
+            return true;
+        
+        return false;   
     }
 };
+
+// bool cards :: isValidMove(cards Top)
 
 // These functions are now in main file
 

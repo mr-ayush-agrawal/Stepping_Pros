@@ -1,7 +1,7 @@
 #include "cards.h"
 #include "player.h"
 #include <time.h>
-#include "Info.cpp"
+#include "MovesAndRotation.cpp"
 using namespace std;
 
 vector<cards> CreateDeck();
@@ -12,7 +12,9 @@ cards Distribute(player[],int,vector<cards>&);
 int main()
 {
     rules();
+    
     how_to_play();
+    system("pause");
     int NumberOfPlayers = starting_Game();
     vector<cards> Deck = CreateDeck();
     suffleDeck(Deck);
@@ -42,6 +44,7 @@ int main()
     // } 
     // cout<<"\n\nCards Remaining  "<<Deck.size();
 
+    MoveandRotation(Players,NumberOfPlayers,Deck,TopCard);
 
     return 0;
 }
@@ -89,7 +92,7 @@ cards Distribute(player Players[],int No,vector<cards> &Deck)
         Players[i%No].draw(Deck.back());
         Deck.pop_back();
     }
-    cards Top =Deck.back();
+    cards Top = Deck.back();
     Deck.pop_back();
 
     return Top;

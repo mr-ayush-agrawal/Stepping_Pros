@@ -11,6 +11,7 @@ class player
     public :
     void draw(cards newCard); // To add the cards in hand if drawn
     void move(cards &Top_Cards,int); // To remove the card in hand as moved
+    int CardsCount(); // Returns the Number of Cards a player is having
     void showHand(); //Printing all the cards a player is carrying with Index
     void getName(string); // To get the name of the player 
     string PlayerName(); // To return the Player's Name
@@ -49,4 +50,9 @@ void player :: getName(string Name)
 string player :: PlayerName()
 {
     return Name;
+}
+
+int player ::CardsCount()
+{
+    return this->inHand.size();
 }
