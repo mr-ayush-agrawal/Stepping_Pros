@@ -74,6 +74,8 @@ void MoveandRotation(player Players[], int NumberOfPlayers, vector<cards> &Deck,
                     Players[i % NumberOfPlayers].draw(Deck.back());
                     Deck.pop_back();
                 }
+                cout << "\nNext Players Draws 2 Cards";
+                system("pause>0");
                 break;
 
             case 'W':
@@ -91,7 +93,7 @@ void MoveandRotation(player Players[], int NumberOfPlayers, vector<cards> &Deck,
 
             case 'F':
                 // For Wild Card -> Get the color and update
-                bool flag;
+                // bool flag;
                 do
                 {
                     cout << "\nYou Have Played the Draw Four Card -> Which Color You want to change";
@@ -106,6 +108,8 @@ void MoveandRotation(player Players[], int NumberOfPlayers, vector<cards> &Deck,
                     Players[i % NumberOfPlayers].draw(Deck.back());
                     Deck.pop_back();
                 }
+                cout << "\nNext Players Draws 4 Cards";
+                system("pause>0");
                 break;
 
             default:
