@@ -6,6 +6,8 @@ void rules();
 void how_to_play();
 int starting_Game();
 void PowerCards();
+void declareWinner(string);
+void declareWDraw();
 
 // int main()
 // {
@@ -82,4 +84,15 @@ void PowerCards()
     cout << "\n4. DRAW 4 CARD (+4) : The Next Player Picks 4 cards form the deck, move of the reciver also gets skipped and the player who played the card can call the color of the deck"; //
     cout << "\n5. WILD CARD (_) : The Player call the color of the deck and next plater has to play the color";                                                                             //
     cout << "Remember the stacking of power cards is not allowed. That means If a power card is played then the next player has to follow it";
+}
+
+
+void declareWinner(string str)
+{
+    cout<<"\nThe Winnwe is "<<str;
+}
+
+void declareDraw()
+{
+    cout<<"The Game ended in draw";
 }

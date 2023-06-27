@@ -30,7 +30,13 @@ public:
     {
         // This Function is temporary
         cout << "\n"
-             << color << "\t-> " << face;
+             << color << "\t-> ";
+        if (face == 'T')
+            cout << "+2";
+        else if (face == 'F')
+            cout << "+4";
+        else
+            cout << face;
     }
     bool isValidMove(cards Top)
     {
@@ -40,10 +46,14 @@ public:
         // else if (!strcmp(Top.getColor(), color))
         else if (!this->color.compare(Top.getColor()))
             return true;
-        else if (Top.getNum()==this->face)
+        else if (Top.getNum() == this->face)
             return true;
-        
-        return false;   
+
+        return false;
+    }
+    void changeColor(string c)
+    {
+        this->color = c;
     }
 };
 

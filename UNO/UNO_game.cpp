@@ -12,7 +12,7 @@ cards Distribute(player[],int,vector<cards>&);
 int main()
 {
     rules();
-    
+
     how_to_play();
     system("pause");
     int NumberOfPlayers = starting_Game();
@@ -31,18 +31,6 @@ int main()
     }
 
     cards TopCard = Distribute(Players,NumberOfPlayers,Deck);
-
-    // Testing Purpose
-    // cout<<"\nTop Card ";
-    // TopCard.show();
-    // cout<<"\n\n\nAll the Cards hold by the players";
-    // for (size_t i = 0; i < NumberOfPlayers; i++)
-    // {
-    //     cout<<"\nPlayer "<<i<<" Name : "<<Players[i].PlayerName();
-    //     Players[i].showHand();
-    //     cout<<endl;
-    // } 
-    // cout<<"\n\nCards Remaining  "<<Deck.size();
 
     MoveandRotation(Players,NumberOfPlayers,Deck,TopCard);
 
