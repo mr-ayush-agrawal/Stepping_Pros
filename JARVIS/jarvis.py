@@ -20,9 +20,10 @@ def openSomething(query):
         speak("Opening Google in a new window", False)
         web.open_new("google.com")
 
-
 if __name__ == '__main__':
-    wishMe()
+    web.register('chrome', None)
+
+    # wishMe()
     # while True :
     if True :
         query = takeCommand().lower()
