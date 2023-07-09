@@ -1,0 +1,8 @@
+Pygame : This is the module is used for creating games in python.
+    There are 4 main parts in the module
+        1. Game Loop : 
+            Its an infinite while loop where the Sprites are blitted (shown images continuesly). Play the sound and accept the event from the user. And then changing the screen according to it.
+            This all depends on the basis of what user does as event.
+        2. Events
+        3. Sprites
+        4. Sound
