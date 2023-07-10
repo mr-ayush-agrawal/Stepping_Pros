@@ -1,6 +1,3 @@
-import random 
-import sys
-
 from game import *
 
 def welcomeScreen() :

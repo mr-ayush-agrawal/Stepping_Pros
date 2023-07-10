@@ -12,7 +12,6 @@ Pygame : This is the module is used for creating games in python.
     pygame.init() -> Initialize the all module
     pygame.display.init() -> Initialize the display module
 
-
 We are importing different Modules for the game 
     1. Pygame : Game Development 
     2. Random : Generating Random numbers
@@ -41,7 +40,6 @@ Loading Files form the sys
     Sound
         mixer.Sound : Loading sound from sys to Program
 
-
 Main Program Stuff 
     Initialization of the module of pygame -> pygame.init
     FPSCLOCK : Controls the FPS of the game -> This is going tp keep track of the time
@@ -50,8 +48,79 @@ Main Program Stuff
     welcomeScreen : Shows a message until the game starts
     mainGame : This contains all the stuff required for the game
 
+    Blitting Means Showing the Image on screen
+
+    All the CO-ordinates of the game is in the below section
+
+welcomeScreen Functions Stuffs :    
+    event.get() -> Records all the events by the user. This contains all kind of Mouse clicks, KeyPresses.
+        KeyDown -> Key is pressed
+        event.key -> which key  is pressed
+    SCREEN.blit : Shows the image on the screen. Takes 2 agrs
+        1. Image to be shown
+        2 Co-ordinate at which it is to be shown (as a tuple)
+    display.update : Updates the Screen
+        Until this does not execute it does not changes the screen 
+        For applying blit this has to be run.
+    FPSCLOCK -> Controls the FPS of the GAME
+        It doesn't allow to change the sccren above that screen rate.
 
 
+Co-ordinate of the Game Screen
+    The Top-Left corner is (0,0). -> Horizontally Right goes the X-axis and Y-axis goes Vertically Down
+    All the refernce points of the images are calculated form the same point of all the images (i.e Top-Left)
+    The blitting takes place with that ref point.
 
-Screen Height Calculations For the pipe Location
-    First we are going to create Lower pipe and then setting up the Upper pipe with an off set
+    Player :
+        X-> on left of bird its going to be 20% and 80% on right
+        Y-> Making it to the center [H-h]/2 
+            Reducing the height of the bird to get the center 
+    Base :
+        X = 0 -> always stick to left side of the screen
+        Y     -> This is global BaseY
+
+    Screen Height Calculations For the pipe Location
+
+        Here the main task is go get the relative position of the Pipe co-ordinate via random function
+        The thing would be in a function which shall return the list of dict of indices of the pipes
+            [{'x':__, 'y':__}->Upper, {'x':__, 'y':__}->Lower]      -> this would be return by the function
+        
+        First we are going to create Lower pipe and then setting up the Upper pipe with an off set
+
+        We are going to make the pipes in the X direction at 10 units aways from the SCREENWIDTH. And then provide it a velocity in x direction
+        We are going to have a minimum distance OFFSET between the pipes so that the bird passes through it.
+
+        For Lower Pipe : We are Generating a random number between (OFFSET, SCREENHEIGHT - Base_height - 1.2*offset) -> y of lower pipe
+            1.2*OFFSET is decreased as we dont want to completely set the pipe to ground
+                1.2 is by hit and trial method.. This may change for the program
+            
+        For upper pipe : Yupper = - (PipeHeight - Ylower + OFFSet)  
+            -1 coz the top of the upper would be over the ref point.
+
+
+Game File :
+    Defining the variable same as the Welcone Screen 
+    Now creating 2 pipes that would be shown on the screen.
+    Making seprate lists of the lower and Upper pipes
+
+    Variables :
+        Score : Var to count the score
+        pipeVelX : pipe velocity in X axis -> This can be made dynaimc
+        playerVelY = -9 :
+        playerMaxVelY = 10 :
+        playerMinVelY = -8 :
+        playerAccY = 1 :
+        playerFlapAccV = -8 : Velocity of the bird while flapping
+        playerFlapped = False : True when the player is flapping the Bird   
+
+    The Game Loop : The game would run according to the this loop
+        First we will check if the player wants to exit ?
+        If Player is playing
+            If inside the screen 
+                flapped
+                Provide Acc due ro flapped
+                playing sound of wings
+
+
+        We will check rather the player has collided or not  -> Outside the event loop but inside the game loop
+        
