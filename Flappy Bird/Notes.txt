@@ -47,6 +47,8 @@ Main Program Stuff
     FPSCLOCK : Controls the FPS of the game -> This is going tp keep track of the time
     setCaption : Gives the name to window
 
+    welcomeScreen : Shows a message until the game starts
+    mainGame : This contains all the stuff required for the game
 
 
 

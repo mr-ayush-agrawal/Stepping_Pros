@@ -8,9 +8,13 @@ The Source of learning is given in the [Refercnce](#refercnce). I have already l
 ## :open_file_folder: Files
 All the required modules and their used version are listed in [this file](./requirements.txt).
 
+All the code related to loading the images and the sound files are in the [this file](./load.py). This file is getting imported and function here are used for importing the files.<br>
+All the Constant Global variables which are getting used in every place are in [seprate file](globalVar.py). There are kept constant throughout the program.
+
 <!-- Something about the files of the Project here -->
 
-The Main code is in the file **[game.py](./game.py)**
+The Game code and logic is in the file **[game.py](./game.py)** <br>
+Where as the main file is which contains all the preplaying setup and other stuff are in **[main.py](./main.py)**
 
 ## :student: Why
 The Major reason of selecting this as project is Learn who GUI Applications are created and Create then using python.Since I have started coding I have only done it in console. I always wanted to witness how GUI interactive Applications are created. I always wanted to learn the automation and what bwtter could be. What better thing can be ny creating a game which we always play when we were child.
