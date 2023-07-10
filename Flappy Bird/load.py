@@ -1,3 +1,9 @@
+'''
+This File contains functions related to loading sounds and sptites of the game
+It only contains function which make the code look clean
+'''
+
+
 from globalVar import *
 
 def loadImages():
@@ -18,7 +24,7 @@ def loadImages():
                         image.load(PIPE).convert_alpha()
                         )
     GAME_IMAGES['bird'] = image.load('Gallery\\Images\\bird.png').convert_alpha()
-    GAME_IMAGES['background'] = image.load('Gallery\\Images\\Background.jpg').convert_alpha()
+    GAME_IMAGES['background'] = image.load('Gallery\\Images\\Background.jpg').convert()
     
     
 

@@ -1,3 +1,8 @@
+'''
+This file contains all the Global Variable which shall be constant throughout the game
+This only defines the status and the things present in the game.
+'''
+
 import pygame
 from pygame import *
 
