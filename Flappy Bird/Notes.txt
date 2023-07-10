@@ -33,13 +33,19 @@ Global Veriables
         - BACKGROUND : Relative Path of the image of the background
         - PIPE : Relative Path of the image of the pipe
 
+Loading Files form the sys
+    Images
+        image.load : Loads the image obj from the given Location
+        convert_alpha : changes img to pixaled format -> OPTIMIZES it
+        transform.rotate : rotate the image with given angle
+    Sound
+        mixer.Sound : Loading sound from sys to Program
+
+
 Main Program Stuff 
     Initialization of the module of pygame -> pygame.init
     FPSCLOCK : Controls the FPS of the game -> This is going tp keep track of the time
     setCaption : Gives the name to window
-    image.load : Loads the image obj from the given Location
-    convert_alpha : changes img to pixaled format -> OPTIMIZES it
-    transform.rotate : rotate the image with given angle
 
 
 
