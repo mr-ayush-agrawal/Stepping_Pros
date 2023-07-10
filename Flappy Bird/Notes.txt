@@ -8,3 +8,42 @@ Pygame : This is the module is used for creating games in python.
         3. Sprites : These are the images that are shown in the view
         4. Sound : The sound played while playing the game
             Like the sound while hitting the bird with the pipe
+
+    pygame.init() -> Initialize the all module
+    pygame.display.init() -> Initialize the display module
+
+
+We are importing different Modules for the game 
+    1. Pygame : Game Development 
+    2. Random : Generating Random numbers
+    3. sys : Using sys.exit for quiting the game in between
+
+Global Veriables
+    These are the variable which is going to be constant throughout the game
+    These generally setup the basic config of the game. -> All these are decleared in different file and imported from There
+    There are
+        - PFS : The number of frames per sec at which image is changing (A Randnum of Choice so it seems smooth)
+        - SCREEN WIDTH : The width of the game screen (width of the bg image)
+        - SCREEN HEIGHT : The height of the game screen (Height of the bg image)
+        - SCREEN : A window of (wid,ht) get Initialize using set_mode() 
+        - BASEY : The height at which base would be placed (85% of the screen would be left)
+        - GAME_IMAGES : Images used in the game that would be blitted 
+        - GAME_SOUNDS : Sounds used in the game 
+        - BIRD : Relative Path of the image of the bird
+        - BACKGROUND : Relative Path of the image of the background
+        - PIPE : Relative Path of the image of the pipe
+
+Main Program Stuff 
+    Initialization of the module of pygame -> pygame.init
+    FPSCLOCK : Controls the FPS of the game -> This is going tp keep track of the time
+    setCaption : Gives the name to window
+    image.load : Loads the image obj from the given Location
+    convert_alpha : changes img to pixaled format -> OPTIMIZES it
+    transform.rotate : rotate the image with given angle
+
+
+
+
+
+Screen Height Calculations For the pipe Location
+    First we are going to create Lower pipe and then setting up the Upper pipe with an off set
