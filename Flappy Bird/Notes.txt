@@ -151,3 +151,8 @@ Game File :
             We can select the position of blitting Score as per the UI
 
     Uppdating the display for the GAME.
+
+
+Is Collide :
+    Flase -> game continues
+    True -> Game over

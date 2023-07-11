@@ -31,7 +31,7 @@ def mainGame():
     ]
 
     score = 0
-    pipeVelX = -4        # -score*.2 -> Something hit and trial
+    pipeVelX = -4        # -score*.12 -> Something hit and trial
     
     playerVelY = -9 
     playerMaxVelY = 10
@@ -51,7 +51,7 @@ def mainGame():
                 if playery > 0 : 
                     # Inside the screen
                     playerFlapped = True
-                    playerAccY = playerFlapAccV
+                    playerVelY = playerFlapAccV
                     GAME_SOUNDS['wing'].play()
 
         # Check for the collidial
@@ -70,6 +70,7 @@ def mainGame():
                 print(f"Your score is {score}")
                 GAME_SOUNDS['point'].play()
 
+
         # Updating the player velocity if not flapper
         if playerVelY < playerMaxVelY and not playerFlapped :
             playerVelY += playerAccY
@@ -77,7 +78,7 @@ def mainGame():
         if playerFlapped :
             playerFlapped = False
 
-        playery = playery + min(playery, BASEY - playery - player_Height)
+        playery = playery + min(playerVelY, BASEY - playery - player_Height)
 
         # Moving the pipes to left
         for Upper , Lower in zip (UpperPipes, LowerPipes):
@@ -113,7 +114,7 @@ def mainGame():
         for num in Digits :
             width += GAME_IMAGES['Numbers'][num].get_width()
         Xdist = (SCREENWIDTH - width)/2
-        
+
         for num in Digits :
             SCREEN.blit(GAME_IMAGES['Numbers'][num], (Xdist, SCREENHEIGHT*0.12))
             Xdist+=GAME_IMAGES['Numbers'][num].get_width()
@@ -147,7 +148,7 @@ def RandPipe():
 
 
 def isCollide(playerx, playery, LowerPipes, UpperPipes):
-    pass
+    return False
 
 
 
