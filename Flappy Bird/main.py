@@ -42,3 +42,4 @@ loadSounds()        # Loading Sound files
 while True :
     welcomeScreen()     # Function to start the game
     mainGame()          # Where all the logic of the game is written
+    GAME_SOUNDS['die'].play()
