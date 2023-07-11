@@ -156,3 +156,14 @@ Game File :
 Is Collide :
     Flase -> game continues
     True -> Game over
+
+    BASEY - GAME_IMAGES['bird'].get_height() -2 :
+        Almost tuoch the ground
+    playery < 0 :
+        Crossed the ceiling
+
+    The player shoud be inside the pipes -> 2nd condition in If
+    and at the same time the height of the player shoud be in the range of pipe height
+        condition 1 checks the height of player wrt to pipes
+
+    

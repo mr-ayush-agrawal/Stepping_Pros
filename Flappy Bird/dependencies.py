@@ -33,5 +33,34 @@ def RandPipe():
 
 
 def isCollide(playerx, playery, LowerPipes, UpperPipes):
+    '''Returns true on Collidal or going out of the screen'''
+
+    # Checking the Player is in screen or outside
+    if playery > BASEY - GAME_IMAGES['bird'].get_height() -2 :
+        # At Ground
+        GAME_SOUNDS['hit'].play()
+        return True
+    if playery < 0 :
+        # Touches the ceiling
+        GAME_SOUNDS['hit'].play()
+        return True
+    
+    pipeHeight =  GAME_IMAGES['pipe'][1].get_height()
+    pipeWidth =  GAME_IMAGES['pipe'][1].get_width()
+    playerWidth = GAME_IMAGES['bird'].get_width()
+    playerHeight = GAME_IMAGES['bird'].get_height()
+
+
+    # Checking the Pipes hit
+    for pipe in UpperPipes :
+        if playery < (pipeHeight + pipe['Y']) and ((playerx + playerWidth) >= pipe['X'] and (pipe['X'] + pipeWidth) >= playerx)  :
+            GAME_SOUNDS['hit'].play()
+            return True
+
+    for pipe in LowerPipes :
+        if (playery + playerHeight) > pipe['Y'] and ((playerx + playerWidth) >= pipe['X'] and (pipe['X'] + pipeWidth) >= playerx)  :
+            GAME_SOUNDS['hit'].play()
+            return True
+
     return False
 
