@@ -1,2 +1,4 @@
-*exe
+*.exe
 Plan.txt
+logs.txt
+__pycache__
