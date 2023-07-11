@@ -26,8 +26,8 @@ def mainGame():
     ]
     # Creating the List of the pipes -> Upper
     UpperPipes = [
-        {'X' : SCREENWIDTH + 200, 'Y':newPipe1[0]['Y']},
-        {'X' : SCREENWIDTH + 200 + SCREENWIDTH/2, 'Y':newPipe2[0]['Y']}
+        {'X' : SCREENWIDTH + 200, 'Y':newPipe1[1]['Y']},
+        {'X' : SCREENWIDTH + 200 + SCREENWIDTH/2, 'Y':newPipe2[1]['Y']}
     ]
 
     score = 0
@@ -86,7 +86,7 @@ def mainGame():
             Lower['X'] += pipeVelX
 
         # Adding a new pipe when the pipe is about to get remove
-        if 0 < UpperPipes[0]['X'] < 5:
+        if 0 < UpperPipes[0]['X'] <= -pipeVelX:
             newPipe = RandPipe()
             UpperPipes.append(newPipe[1])
             LowerPipes.append(newPipe[0])
