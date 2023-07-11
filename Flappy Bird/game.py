@@ -1,11 +1,11 @@
 """
 This contains all the game playing logic.
 The game is controlled from the function in the file.
+
+All the user functions here are in dependencies file.
 """
 
-import sys
-from load import *
-from random import randrange
+from dependencies import *
 
 
 def mainGame():
@@ -121,36 +121,6 @@ def mainGame():
         
         pygame.display.update()
         FPSCLOCK.tick(FPS)
-
-
-def RandPipe():
-    '''
-    Generates the position of the pipes and return the list of Dict
-    containg the X and Y of the pipes
-    '''
-
-    pipeHeight = GAME_IMAGES['pipe'][0].get_height()
-    OFFSET = int(SCREENHEIGHT/3) 
-
-    # Generating lower pipe
-    y_lower = OFFSET + randrange (0 , int(SCREENHEIGHT - GAME_IMAGES['base'].get_height() - 1.2*OFFSET))
-    y_upper = -(pipeHeight - y_lower + OFFSET)
-    pipeX = SCREENWIDTH + 15        # It would start from 15 outside the screen
-
-    # List that is to be returned with the co-ordinates
-
-    pipe = [
-        {'X' : pipeX, 'Y': y_lower},    # Lower Pipe
-        {'X' : pipeX, 'Y': y_upper}     # Upper Pipe
-    ]
-
-    return pipe
-
-
-def isCollide(playerx, playery, LowerPipes, UpperPipes):
-    return False
-
-
 
 
 # # Our Program will start from here
