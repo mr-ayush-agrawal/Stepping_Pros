@@ -70,6 +70,42 @@ def mainGame():
                 print(f"Your score is {score}")
                 GAME_SOUNDS['point'].play()
 
+        # Updating the player velocity if not flapper
+        if playerVelY < playerMaxVelY and not playerFlapped :
+            playerVelY += playerAccY
+
+        elif playerFlapped :
+            playerFlapped = False
+
+        playery = playery + min(playery, BASEY - playery - player_Height)
+
+        # Moving the pipes to left
+        for Upper , Lower in zip (UpperPipes, LowerPipes):
+            Upper['X'] += pipeVelX
+            Lower['X'] += pipeVelX
+
+        # Adding a new pipe when the pipe is about to get remove
+        if 0 < UpperPipes[0]['X'] < 10:
+            newPipe = RandPipe()
+            UpperPipes.append(newPipe[1])
+            LowerPipes.append(newPipe[0])
+            # Here 0 , 1 are according to return val of the RandPipe
+
+        # Removing the pipe if outside the screen
+        if UpperPipes[0]['X'] < -GAME_IMAGES['pipe'].get_width() :
+            UpperPipes.pop(0)
+            LowerPipes.pop(0)
+            # 0 are the index of first pipe in the flow
+
+        # Now blitting the sprites on the screen
+        SCREEN.blit(GAME_IMAGES['background'], (0, 0))
+            # Blitting the Pipes
+        for Upper , Lower in zip (UpperPipes, LowerPipes):
+            SCREEN.blit(GAME_IMAGES['pipe'][0], (Upper['X'], Upper['Y']))
+            SCREEN.blit(GAME_IMAGES['pipe'][1], (Lower['X'], Lower['Y']))
+            
+        SCREEN.blit(GAME_IMAGES['base'], (baseX, BASEY))
+        SCREEN.blit(GAME_IMAGES['player'], (playerx, playery))
 
 
 
