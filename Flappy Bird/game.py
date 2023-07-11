@@ -33,6 +33,42 @@ def mainGame():
     score = 0
     pipeVelX = -4        # -score*.2 -> Something hit and trial
     
+    playerVelY = -9 
+    playerMaxVelY = 10
+    playerMinVelY = -8
+    playerAccY = 1
+    playerFlapAccV = -8
+    playerFlapped = False
+
+    # Making the main game loop
+    while True :
+        for events in event.get():
+            if events.type == QUIT or (events.type == KEYDOWN and events.key == K_ESCAPE) :
+                pygame.quit()
+                sys.exit()
+            elif events.type == KEYDOWN and (events.key == K_SPACE or events.key == K_UP) :
+                # UPdating the variables in the game
+                if playery > 0 : 
+                    # Inside the screen
+                    playerFlapped = True
+                    playerAccY = playerFlapAccV
+                    GAME_SOUNDS['wing'].play()
+
+        # Check for the collidial
+        if isCollide(playerx, playery, LowerPipes, UpperPipes) :
+            return
+
+        # Check for the score.
+        playerMidPos = playerx + GAME_IMAGES['bird'].get_width()/2
+        # For upper pipes
+        for pipe in UpperPipes :
+            pipeMidPos = pipe['X'] + GAME_IMAGES['pipe'].get_width()/2
+
+            # Setting up the condition for checking the position of player 
+            if pipeMidPos <= playerMidPos <pipeMidPos + 4:
+                score+=1
+                print(f"Your score is {score}")
+                GAME_SOUNDS['point'].play()
 
 
 
@@ -61,3 +97,5 @@ def RandPipe():
     return pipe
 
 
+def isCollide(playerx, playery, LowerPipes, UpperPipes):
+    pass

@@ -121,6 +121,28 @@ Game File :
                 Provide Acc due ro flapped
                 playing sound of wings
 
-
         We will check rather the player has collided or not  -> Outside the event loop but inside the game loop
+            return on collidial
+
+        We will check the score and update on crossing the mid of pipes and a small background
+            We can even set different condition for the scoring purpose
+        First checking for the upper pipes and then for the lower
+            We took a band of 4 units for scoring
+            we will add the score and play the sound of getting the point
+
+        We will update the vel on not flapping
+        if flapped then set it false for nxt iteration
+
+        We are updating the player Y cordinate next and making it sure that the player doesn't go below the base
+            The value on hitting the ground the value of (BASEY - playery - player_Height) is going to be 0.
+        
+        Now we will be moving the pipe to the lest will look like the player is moving forward
+            for this we are using the zip feature of python
+            and updating the pos of X of the pipes with vel
+        Remove the pipe if outside the scereen 
+            When X is completely outside the screen hence its in -width
+        Adding the pipe before letting the first pipe going out of range.
+
+        Finally Blit the images
+        
         
