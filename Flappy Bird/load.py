@@ -24,7 +24,7 @@ def loadImages():
                         image.load(PIPE).convert_alpha()
                         )
     GAME_IMAGES['bird'] = image.load('Gallery\\Images\\bird.png').convert_alpha()
-    GAME_IMAGES['background'] = image.load('Gallery\\Images\\Background.jpg').convert()
+    GAME_IMAGES['background'] = image.load('Gallery\\Images\\Background.png').convert()
     
     
 

@@ -7,7 +7,7 @@ import pygame
 from pygame import *
 
 FPS = 45
-SCREENWIDTH = 510
+SCREENWIDTH = 875
 SCREENHEIGHT = 816
 SCREEN = pygame.display.set_mode((SCREENWIDTH,SCREENHEIGHT))
 BASEY = SCREENHEIGHT * 0.85
