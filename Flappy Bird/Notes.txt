@@ -1,0 +1,169 @@
+Pygame : This is the module is used for creating games in python.
+    There are 4 main parts in the module
+        1. Game Loop : 
+            Its an infinite while loop where the Sprites are blitted (shown images continuesly). Play the sound and accept the event from the user. And then changing the screen according to it.
+            This all depends on the basis of what user does as event.
+        2. Events: These are the Things captured that are done by the user
+            Like the buttons pressed while playing.
+        3. Sprites : These are the images that are shown in the view
+        4. Sound : The sound played while playing the game
+            Like the sound while hitting the bird with the pipe
+
+    pygame.init() -> Initialize the all module
+    pygame.display.init() -> Initialize the display module
+
+We are importing different Modules for the game 
+    1. Pygame : Game Development 
+    2. Random : Generating Random numbers
+    3. sys : Using sys.exit for quiting the game in between
+
+Global Veriables
+    These are the variable which is going to be constant throughout the game
+    These generally setup the basic config of the game. -> All these are decleared in different file and imported from There
+    There are
+        - PFS : The number of frames per sec at which image is changing (A Randnum of Choice so it seems smooth)
+        - SCREEN WIDTH : The width of the game screen (width of the bg image)
+        - SCREEN HEIGHT : The height of the game screen (Height of the bg image)
+        - SCREEN : A window of (wid,ht) get Initialize using set_mode() 
+        - BASEY : The height at which base would be placed (85% of the screen would be left)
+        - GAME_IMAGES : Images used in the game that would be blitted 
+        - GAME_SOUNDS : Sounds used in the game 
+        - BIRD : Relative Path of the image of the bird
+        - BACKGROUND : Relative Path of the image of the background
+        - PIPE : Relative Path of the image of the pipe
+
+Loading Files form the sys
+    Images
+        image.load : Loads the image obj from the given Location
+        convert_alpha : changes img to pixaled format -> OPTIMIZES it
+        transform.rotate : rotate the image with given angle
+    Sound
+        mixer.Sound : Loading sound from sys to Program
+
+Main Program Stuff 
+    Initialization of the module of pygame -> pygame.init
+    FPSCLOCK : Controls the FPS of the game -> This is going tp keep track of the time
+    setCaption : Gives the name to window
+
+    welcomeScreen : Shows a message until the game starts
+    mainGame : This contains all the stuff required for the game
+
+    Blitting Means Showing the Image on screen
+
+    All the CO-ordinates of the game is in the below section
+
+welcomeScreen Functions Stuffs :    
+    event.get() -> Records all the events by the user. This contains all kind of Mouse clicks, KeyPresses.
+        KeyDown -> Key is pressed
+        event.key -> which key  is pressed
+    SCREEN.blit : Shows the image on the screen. Takes 2 agrs
+        1. Image to be shown
+        2 Co-ordinate at which it is to be shown (as a tuple)
+    display.update : Updates the Screen
+        Until this does not execute it does not changes the screen 
+        For applying blit this has to be run.
+    FPSCLOCK -> Controls the FPS of the GAME
+        It doesn't allow to change the sccren above that screen rate.
+
+
+Co-ordinate of the Game Screen
+    The Top-Left corner is (0,0). -> Horizontally Right goes the X-axis and Y-axis goes Vertically Down
+    All the refernce points of the images are calculated form the same point of all the images (i.e Top-Left)
+    The blitting takes place with that ref point.
+
+    Player :
+        X-> on left of bird its going to be 20% and 80% on right
+        Y-> Making it to the center [H-h]/2 
+            Reducing the height of the bird to get the center 
+    Base :
+        X = 0 -> always stick to left side of the screen
+        Y     -> This is global BaseY
+
+    Screen Height Calculations For the pipe Location
+
+        Here the main task is go get the relative position of the Pipe co-ordinate via random function
+        The thing would be in a function which shall return the list of dict of indices of the pipes
+            [{'x':__, 'y':__}->Upper, {'x':__, 'y':__}->Lower]      -> this would be return by the function
+        
+        First we are going to create Lower pipe and then setting up the Upper pipe with an off set
+
+        We are going to make the pipes in the X direction at 10 units aways from the SCREENWIDTH. And then provide it a velocity in x direction
+        We are going to have a minimum distance OFFSET between the pipes so that the bird passes through it.
+
+        For Lower Pipe : We are Generating a random number between (OFFSET, SCREENHEIGHT - Base_height - 1.2*offset) -> y of lower pipe
+            1.2*OFFSET is decreased as we dont want to completely set the pipe to ground
+                1.2 is by hit and trial method.. This may change for the program
+            
+        For upper pipe : Yupper = - (PipeHeight - Ylower + OFFSet)  
+            -1 coz the top of the upper would be over the ref point.
+
+
+Game File :
+    Defining the variable same as the Welcone Screen 
+    Now creating 2 pipes that would be shown on the screen.
+    Making seprate lists of the lower and Upper pipes
+
+    Variables :
+        Score : Var to count the score
+        pipeVelX : pipe velocity in X axis -> This can be made dynaimc
+        playerVelY = -9 :
+        playerMaxVelY = 10 :
+        playerMinVelY = -8 :
+        playerAccY = 1 :
+        playerFlapAccV = -8 : Velocity of the bird while flapping
+        playerFlapped = False : True when the player is flapping the Bird   
+
+    The Game Loop : The game would run according to the this loop
+        First we will check if the player wants to exit ?
+        If Player is playing
+            If inside the screen 
+                flapped
+                Provide Acc due ro flapped
+                playing sound of wings
+
+        We will check rather the player has collided or not  -> Outside the event loop but inside the game loop
+            return on collidial
+
+        We will check the score and update on crossing the mid of pipes and a small background
+            We can even set different condition for the scoring purpose
+        First checking for the upper pipes and then for the lower
+            We took a band of 4 units for scoring
+            we will add the score and play the sound of getting the point
+
+        We will update the vel on not flapping
+        if flapped then set it false for nxt iteration
+
+        We are updating the player Y cordinate next and making it sure that the player doesn't go below the base
+            The value on hitting the ground the value of (BASEY - playery - player_Height) is going to be 0.
+        
+        Now we will be moving the pipe to the lest will look like the player is moving forward
+            for this we are using the zip feature of python
+            and updating the pos of X of the pipes with vel
+        Remove the pipe if outside the scereen 
+            When X is completely outside the screen hence its in -width
+        Adding the pipe before letting the first pipe going out of range.
+
+        Finally Blit the images
+        
+        We also have to blit the image of the score
+            For score we will get the digits in the score and then blit its images
+        We are going to position it in center as we have done before while setting bird
+            We can select the position of blitting Score as per the UI
+
+    Uppdating the display for the GAME.
+
+
+Is Collide :
+    Flase -> game continues
+    True -> Game over
+
+    BASEY - GAME_IMAGES['bird'].get_height() -2 :
+        Almost tuoch the ground
+    playery < 0 :
+        Crossed the ceiling
+
+    The player shoud be inside the pipes -> 2nd condition in If
+    and at the same time the height of the player shoud be in the range of pipe height
+        condition 1 checks the height of player wrt to pipes
+
+    
