@@ -32,11 +32,7 @@ def welcomeScreen() :
                 FPSCLOCK.tick(FPS)
 
     
-
-# Our Program will start from here
-pygame.init()
-FPSCLOCK = time.Clock()     # -> From pygame
-display.set_caption("Flappy Bird")
+# ***Srating I have to move it to main of game.py ***
 
 loadImages()        # Loading the images form the system to program
 loadSounds()        # Loading Sound files

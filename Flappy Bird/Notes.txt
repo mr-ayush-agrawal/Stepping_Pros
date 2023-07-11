@@ -145,4 +145,9 @@ Game File :
 
         Finally Blit the images
         
-        
+        We also have to blit the image of the score
+            For score we will get the digits in the score and then blit its images
+        We are going to position it in center as we have done before while setting bird
+            We can select the position of blitting Score as per the UI
+
+    Uppdating the display for the GAME.

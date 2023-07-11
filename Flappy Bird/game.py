@@ -46,7 +46,7 @@ def mainGame():
             if events.type == QUIT or (events.type == KEYDOWN and events.key == K_ESCAPE) :
                 pygame.quit()
                 sys.exit()
-            elif events.type == KEYDOWN and (events.key == K_SPACE or events.key == K_UP) :
+            if events.type == KEYDOWN and (events.key == K_SPACE or events.key == K_UP) :
                 # UPdating the variables in the game
                 if playery > 0 : 
                     # Inside the screen
@@ -62,7 +62,7 @@ def mainGame():
         playerMidPos = playerx + GAME_IMAGES['bird'].get_width()/2
         # For upper pipes
         for pipe in UpperPipes :
-            pipeMidPos = pipe['X'] + GAME_IMAGES['pipe'].get_width()/2
+            pipeMidPos = pipe['X'] + GAME_IMAGES['pipe'][0].get_width()/2
 
             # Setting up the condition for checking the position of player 
             if pipeMidPos <= playerMidPos <pipeMidPos + 4:
@@ -74,7 +74,7 @@ def mainGame():
         if playerVelY < playerMaxVelY and not playerFlapped :
             playerVelY += playerAccY
 
-        elif playerFlapped :
+        if playerFlapped :
             playerFlapped = False
 
         playery = playery + min(playery, BASEY - playery - player_Height)
@@ -85,14 +85,14 @@ def mainGame():
             Lower['X'] += pipeVelX
 
         # Adding a new pipe when the pipe is about to get remove
-        if 0 < UpperPipes[0]['X'] < 10:
+        if 0 < UpperPipes[0]['X'] < 5:
             newPipe = RandPipe()
             UpperPipes.append(newPipe[1])
             LowerPipes.append(newPipe[0])
             # Here 0 , 1 are according to return val of the RandPipe
 
         # Removing the pipe if outside the screen
-        if UpperPipes[0]['X'] < -GAME_IMAGES['pipe'].get_width() :
+        if UpperPipes[0]['X'] < -GAME_IMAGES['pipe'][0].get_width() :
             UpperPipes.pop(0)
             LowerPipes.pop(0)
             # 0 are the index of first pipe in the flow
@@ -105,8 +105,21 @@ def mainGame():
             SCREEN.blit(GAME_IMAGES['pipe'][1], (Lower['X'], Lower['Y']))
             
         SCREEN.blit(GAME_IMAGES['base'], (baseX, BASEY))
-        SCREEN.blit(GAME_IMAGES['player'], (playerx, playery))
+        SCREEN.blit(GAME_IMAGES['bird'], (playerx, playery))
 
+        # Blitting the score
+        Digits = [int(x) for x in str(score)]
+        width = 0       # Total width taken by the numbrs
+        for num in Digits :
+            width += GAME_IMAGES['Numbers'][num].get_width()
+        Xdist = (SCREENWIDTH - width)/2
+        
+        for num in Digits :
+            SCREEN.blit(GAME_IMAGES['Numbers'][num], (Xdist, SCREENHEIGHT*0.12))
+            Xdist+=GAME_IMAGES['Numbers'][num].get_width()
+        
+        pygame.display.update()
+        FPSCLOCK.tick(FPS)
 
 
 def RandPipe():
@@ -135,3 +148,12 @@ def RandPipe():
 
 def isCollide(playerx, playery, LowerPipes, UpperPipes):
     pass
+
+
+
+
+# # Our Program will start from here
+
+pygame.init()
+FPSCLOCK = time.Clock()     # -> From pygame
+display.set_caption("Flappy Bird")
