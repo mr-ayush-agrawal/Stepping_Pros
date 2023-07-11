@@ -67,7 +67,7 @@ def mainGame():
             # Setting up the condition for checking the position of player 
             if pipeMidPos <= playerMidPos <pipeMidPos + 4:
                 score+=1
-                print(f"Your score is {score}")
+                # print(f"Your score is {score}")
                 GAME_SOUNDS['point'].play()
 
 
