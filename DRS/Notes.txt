@@ -1,0 +1,18 @@
+Tkinter -> Used to create GUI Application using python 
+    This is a preinstalled module
+
+    The Docs can be read form (effbot.org/tkinterbook)
+
+We will be using the OpenCV module to work in this project file
+
+PIL is python Imaging Library -> This is used for all the stuff related images in python
+
+tk.Tk() -> Creates the window of the software
+
+OpenCV
+    cvtcolor -> This would read the imgae and conver the colors to RGB Format
+    
+
+Canvas
+    Canvas work reqires the designing part
+    Canvas.pack() -> sets ot to the screen
