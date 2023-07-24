@@ -60,11 +60,12 @@ def Play (Speed):
 
     # Updating the frames
     DisFrame = stream.get(cv2.CAP_PROP_POS_FRAMES)
-    stream.set(cv2.CAP_PROP_POS_FRAMES, DisFrame + Speed )
+    stream.set(cv2.CAP_PROP_POS_FRAMES, DisFrame + Speed)
 
     # Concerting the frame to the Image to set it on canvas
     grabbed, frame = stream.read()
     frame = imutils.resize(frame, width= SET_WIDTH, height= SET_HEIGHT)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = ImageTk.PhotoImage(image= Image.fromarray(frame))
     
     # # If no frame is read
@@ -89,7 +90,7 @@ stream = cv2.VideoCapture(r'DRS\Gallery\clip.mp4')
 
 button = tk.Button(Window, text='<< Previous (Fast)', width=50, command= partial(Play, -15))
 button.pack()
-button = tk.Button(Window, text='< Previous (Slow)', width=50, command= partial(Play, -1))
+button = tk.Button(Window, text='< Previous (Slow)', width=50, command= partial(Play, -2))
 button.pack()
 button = tk.Button(Window, text='Next (Slow) >', width=50, command= partial(Play, 1))
 button.pack()
