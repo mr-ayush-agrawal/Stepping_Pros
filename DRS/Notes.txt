@@ -1,6 +1,8 @@
 Tkinter -> Used to create GUI Application using python 
     This is a preinstalled module
 
+    Running of the mainloop is the MOST IMPORTANT thing else the program will crash
+
     The Docs can be read form (effbot.org/tkinterbook)
 
 We will be using the OpenCV module to work in this project file
@@ -16,3 +18,29 @@ OpenCV
 Canvas
     Canvas work reqires the designing part
     Canvas.pack() -> sets ot to the screen
+
+
+Buttons
+    tk.Button() -> This func is used to create button on the window
+    Window -> In which window button is to be displayed
+    text -> Text inside the button
+    width -> Width of the button
+    command -> Runs the given Function as the arg when button is pressed
+        We cant give the argument here for the function. If the function requiers the arg 
+        for this we use the *partial module*
+
+    Pending()
+        we are reading the imgae
+        Resizing it using imutils
+        Converting it to a tkinter compatiable Image
+        * frame is a array
+        
+
+
+Threading Module :
+    using This will allow us to stop the blockage of the program 
+    We will create a thread that will manage the work to change the image   
+
+    td.thread() -> Creates the thread obj for the work
+    target -> The function which we want to execute
+    Agrs -> Arguments to be passed as a touple

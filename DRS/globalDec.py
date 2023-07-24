@@ -15,3 +15,7 @@ SET_HEIGHT = 400
 # Creating window -> GUI Starts here 
 Window = tk.Tk()
 Window.title("DRS System Project - Ayush")
+
+# Creating Canvas for the window
+# Agrs -> Window, Width, Height
+canvas = tk.Canvas(Window, width=SET_WIDTH, height=SET_HEIGHT)
