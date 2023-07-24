@@ -5,5 +5,6 @@ and this will be used for the review purpose
 
 from globalDec import *
 
+# Loading the base image to show
 cv_image = cv2.cvtColor(cv2.imread(r'E:\LearningProjects\DRS\Gallery\base.png'), cv2.COLOR_BGR2RGB)
 photo = ImageTk.PhotoImage(image=Image.fromarray(cv_image))

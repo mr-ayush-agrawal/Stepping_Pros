@@ -2,7 +2,7 @@
 Here we are making buttons to control the Playback of the video
 '''
 
-from globalDec import *
+from load import *
 from functools import partial
 import threading as td
 import imutils
@@ -35,6 +35,8 @@ def Pending(decision):
 
     frame = imutils.resize(frame, width= SET_WIDTH, height= SET_HEIGHT)
     frame = ImageTk.PhotoImage(image= Image.fromarray(frame))
+
+    # Putting the Image to the canvas
     canvas.image = frame
     canvas.create_image(0,0,image = frame, anchor= tk.NW)
     
@@ -56,14 +58,42 @@ def Out ():
 def Play (Speed):
     print(f"Playing the video with speed {Speed}")
 
+    # Updating the frames
+    DisFrame = stream.get(cv2.CAP_PROP_POS_FRAMES)
+    stream.set(cv2.CAP_PROP_POS_FRAMES, DisFrame + Speed )
 
-button = tk.Button(Window, text='<< Previous (Fast)', width=50, command= partial(Play, -30))
+    # Concerting the frame to the Image to set it on canvas
+    grabbed, frame = stream.read()
+    frame = imutils.resize(frame, width= SET_WIDTH, height= SET_HEIGHT)
+    frame = ImageTk.PhotoImage(image= Image.fromarray(frame))
+    
+    # # If no frame is read
+    # if not grabbed :
+    #     stream.set(cv2.CAP_PROP_POS_FRAMES, DisFrame - Speed )
+
+
+    # Now putting it to the canvas
+    canvas.image = frame
+    canvas.create_image(0,0,image = frame, anchor= tk.NW)
+
+    # Blinking Decision Pending OnScreen
+    canvas.create_text(120, 25 ,fill= 'orange', font='Times 20 italic bold',text='Decision Pending')
+
+
+
+
+# Loading the video using open-CV
+stream = cv2.VideoCapture(r'DRS\Gallery\clip.mp4')
+
+
+
+button = tk.Button(Window, text='<< Previous (Fast)', width=50, command= partial(Play, -15))
 button.pack()
-button = tk.Button(Window, text='< Previous (Slow)', width=50, command= partial(Play, -3))
+button = tk.Button(Window, text='< Previous (Slow)', width=50, command= partial(Play, -1))
 button.pack()
-button = tk.Button(Window, text='Next (Fast) >>', width=50, command= partial(Play, 30))
+button = tk.Button(Window, text='Next (Slow) >', width=50, command= partial(Play, 1))
 button.pack()
-button = tk.Button(Window, text='Next (Slow) >', width=50, command= partial(Play, 3))
+button = tk.Button(Window, text='Next (Fast) >>', width=50, command= partial(Play, 15))
 button.pack()
 button = tk.Button(Window, text='OUT', width=50, command= Out)
 button.pack()

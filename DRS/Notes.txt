@@ -18,6 +18,9 @@ OpenCV
 Canvas
     Canvas work reqires the designing part
     Canvas.pack() -> sets ot to the screen
+    create_text() -> Writes the text on canvas
+    create_image() -> Creates Images on canvas
+        The forst 2 args are the Location of text
 
 
 Buttons
@@ -34,7 +37,7 @@ Buttons
         Resizing it using imutils
         Converting it to a tkinter compatiable Image
         * frame is a array
-        
+
 
 
 Threading Module :
@@ -44,3 +47,8 @@ Threading Module :
     td.thread() -> Creates the thread obj for the work
     target -> The function which we want to execute
     Agrs -> Arguments to be passed as a touple
+
+
+Some Things are used from the opencv Module 
+    Need to learn a lot about the OPENCV
+Also Need to learn more about the ImageTk and its functions its not that clear
