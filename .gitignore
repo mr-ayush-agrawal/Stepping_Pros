@@ -2,3 +2,6 @@
 Plan.txt
 logs.txt
 __pycache__
+
+# This file would carry the apikeys
+apiKey.txt
