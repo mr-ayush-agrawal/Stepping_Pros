@@ -14,3 +14,7 @@ Visit [NewsApi](https://newsapi.org/docs/get-started) to get started with the we
 Signup and create your Login credentials<br>
 You will get your API KRY<br>
 Use that API Key here in the Program or you can create your own Program.
+
+## Entering the API Key
+Please Enter your API key created as per the above step.<br>
+Make a file `apiKey.txt` in the same dir as of the code and Enter the API key there and **No need of putting Any spaces or Endline**. Doing so may produce an error.

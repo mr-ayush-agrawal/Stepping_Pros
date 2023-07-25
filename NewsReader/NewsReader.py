@@ -16,21 +16,26 @@ def speak(str):
     speak.Speak(str)
 
 # API_KEY = input("Enter the API KEY of newsapi website\n")
-API_KEY = 'YOUR API KEY HERE '
+API_KEY = None
+try :
+    with open('apiKey.txt') as api:
+        API_KEY = api.read()
+except :
+    print("Enter the API KEY in the file 'apiKey.txt' ")
+
+url = f"https://newsapi.org/v2/top-headlines?country=in&apiKey={API_KEY}"   
 
 try :
-    url = f"https://newsapi.org/v2/top-headlines?country=in&apiKey={API_KEY}"   
+    news_str = requests.get(url).text
 except :
     print("Enter a valid API Key/ Check your Internet Connection as the Website is not getting accessed")
     exit()
 
-news_str = requests.get(url).text
 speak("News For Today.... Lets Begin !! ")
 
 # JSON.loads takes a str obj and convert it to a pyobject as per the presence
 news = json.loads(news_str)
 
-print(news['status'],news['totalResults'])
 print("Total Nubmber of Articles present are ", len(news['articles']))
 # Now Looping over the articles of the news
 for art in news['articles']:
