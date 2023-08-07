@@ -20,3 +20,20 @@ I haven't written any effictive code in python. As I have learned this language 
 Working with multiple source code files. I have crated a long program but never worked with the multiple file having the source code for a single program.
 
 And of cause the experience making something related to real world using the concept of OOPs so better in that way also.
+
+
+# Tic Tac Toe - AI
+
+## About the game
+This is going to be the AI version of the game. Here the AI never loses the game. It either wins the board or ends up to a draw.
+
+### Algoritham 
+The AI algorithim used here is the min-max by which computer Identify the best possible position to play the move.
+
+## About the project 
+The earlier Version which is without AI and has only the random number generator and the Multiplayer was made with the concept of the classes and objects.<br>
+This AI version is made without using the Classes. 
+
+**Concider both as the different entities** as they are not at all related.
+
+This is basically taken the reference from a video of DevTown on Youtube.
