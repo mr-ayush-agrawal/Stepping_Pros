@@ -58,7 +58,7 @@ def Win(board):
 if __name__ =='__main__':
     Rules.display_Rule()    
     ch = int(input("Enter 1 for 1 playrer else 2 for 2 players "))
-    board = [x for x in range(1,10)]
+    board = [0 for x in range(1,10)]
     print(board)
 
     if ch ==1 :
