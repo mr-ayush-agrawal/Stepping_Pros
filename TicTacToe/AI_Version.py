@@ -55,15 +55,58 @@ def Win(board):
     return 0
 
 
+# This is the main core of the AI program -> Min Max Algo and computer's turn
+
+def minMax(board , player):
+    x = Win(board)
+    if x :
+        return x*player
+    
+    # Now checking for the optimal pos for human
+    pos =-1
+    val = -2     
+
+    for i in range (9):
+        if(board[i] == 0) :
+            board[i]= player
+            score = -minMax(board, player*-1)
+            board[i] = 0           
+            if score > val :
+                val = score
+                pos = i
+
+    # Till here we have created the Recursion Tree Now Need of returning the value
+    if pos ==-1 :
+        return 0
+    return val
+
+def compTurn(board):
+    # Now we have no idea of the position
+    pos =-1
+    val = -2        # minMax is going to return -1,0,1
+
+    # Here we will figureout the position
+    for i in range (9):
+        if(board[i] == 0) :
+            board[i]=1
+            score = -minMax(board, -1)
+            board[i] = 0            # BackTracking
+            if score > val :
+                val = score
+                pos = i
+
+    # At the end when we figureed it out we will move it
+    board[pos] = 1
+
+
 if __name__ =='__main__':
     Rules.display_Rule()    
     ch = int(input("Enter 1 for 1 playrer else 2 for 2 players "))
     board = [0 for x in range(1,10)]
-    print(board)
 
     if ch ==1 :
         print("Its Computer : O Vs You : X")
-        player = int(input("You want to play 1st or 2nd"))
+        player = int(input("You want to play 1st or 2nd "))
         for i in range(9):
             if(Win(board)):
                 break
