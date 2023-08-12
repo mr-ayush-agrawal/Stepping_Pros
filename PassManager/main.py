@@ -11,7 +11,10 @@ Enter Your Choice
 
 
 def view():
-    pass
+    with open("PassWords.txt", 'r') as file :
+        for line in file.readlines():
+            AP = line.split(' |$| ')
+            print(f"Account : {AP[0]}  -> Password : {AP[1]}")
 
 def Add():
     Account = input('Enter the Account : ')
