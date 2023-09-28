@@ -12,7 +12,7 @@ class Image :
             self.x_pixels = x_pixel
             self.y_pixels = y_pixel
             self.num_channels = num_channels
-            self.array = np.zeros(x_pixel,y_pixel,num_channels)
+            self.array = np.zeros((x_pixel,y_pixel,num_channels))
 
         elif filename :
             self.array = self.read_image(filename)
