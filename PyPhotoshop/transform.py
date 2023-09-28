@@ -101,6 +101,23 @@ def apply_kernal(image, kernal):
 
     return newImage
 
+def combine_images(image1, image2):
+    '''Combine 2 images using squred sum of squares : val= sqrt(value_1**2, value_2**2)
+    size of image 1 == image2
+    '''
+    # if (image1.array.shape != image2.array.shape):
+    #     return
+    
+    # Creating new image
+    x_pixel, y_pixel, num_channels = image1.array.shape
+    newImage = Image(x_pixel=x_pixel, y_pixel=y_pixel, num_channels=num_channels)
+    
+    for x in range(x_pixel):
+        for y in range(y_pixel):
+            for z in range(num_channels):
+                newImage.array[x,y,z] = np.sqrt(image1.array[x,y,z]**2 + image2.array[x,y,z])
+
+        return newImage
 
 
 if __name__ == '__main__':
@@ -135,7 +152,10 @@ if __name__ == '__main__':
         [1, 0, -1]
     ])
 
-    edgeX = apply_kernal(city, sobel_x_kernal)
+    edgeX = apply_kernal(lake, sobel_x_kernal)
     edgeX.write_image('Xedge.png')
-    edgeY = apply_kernal(city, sobel_y_kernal)
+    edgeY = apply_kernal(lake, sobel_y_kernal)
     edgeY.write_image('Yedge.png')
+
+    edges = combine_images(edgeX, edgeY)
+    edges.write_image("Edge_detection.png")
