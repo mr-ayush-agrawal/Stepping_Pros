@@ -13,14 +13,15 @@ def adjustBrightness(image, factor):
 
     # Creating a new Image
     newImage = Image(x_pixel=x_pixels, y_pixel = y_pixels, num_channels=num_channels)
-
-
-    # Intutive way -> scaling each pixel
+    '''# Intutive way -> scaling each pixel
     for x in range(x_pixels):
         for y in range(y_pixels):
             for ch in range(num_channels):
-                newImage.array[x,y,ch] = image.array[x,y,ch]*factor
+                newImage.array[x,y,ch] = image.array[x,y,ch]*factor'''
     
+    # Vectorized approach
+    newImage = image.array * factor
+
     return newImage
 
 
