@@ -41,7 +41,6 @@ class Image :
         writer = png.Writer(x,y)
         with open (getcwd() + self.output_path + output_file_name , 'wb') as f:
             writer.write(f,255*(im**(1/gamma)))
-
         self.array.resize(y,x,3)
 
 if __name__ =='__main__' :
