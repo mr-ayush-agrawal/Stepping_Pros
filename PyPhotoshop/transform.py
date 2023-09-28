@@ -31,13 +31,13 @@ def adjustContast(image, factor, mid = 0.5):
     x_pixels, y_pixels, num_channels = image.array.shape
     newImage = Image(x_pixel=x_pixels, y_pixel = y_pixels, num_channels=num_channels)
 
-    """# Intutive way 
+    '''# Intutive way 
     for x in range(x_pixels):
         for y in range (y_pixels):
             for num in range(num_channels):
-                newImage.array[x,y,num] = (image.array[x,y,num] - mid) * factor + mid"""
+                newImage.array[x,y,num] = (image.array[x,y,num] - mid) * factor + mid'''
 
-    newImage = (image - mid) * factor + mid
+    newImage.array = (image.array - mid) * factor + mid
 
     return newImage
 
