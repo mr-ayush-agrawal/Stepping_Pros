@@ -24,6 +24,23 @@ def adjustBrightness(image, factor):
 
     return newImage
 
+def adjustContast(image, factor, mid = 0.5):
+    '''Contrast increases the diffetence from the mid-point
+    Increaseing the difference by factors times    '''
+
+    x_pixels, y_pixels, num_channels = image.array.shape
+    newImage = Image(x_pixel=x_pixels, y_pixel = y_pixels, num_channels=num_channels)
+
+    """# Intutive way 
+    for x in range(x_pixels):
+        for y in range (y_pixels):
+            for num in range(num_channels):
+                newImage.array[x,y,num] = (image.array[x,y,num] - mid) * factor + mid"""
+
+    newImage = (image - mid) * factor + mid
+
+    return newImage
+
 
 if __name__ == '__main__':
     if not getcwd().endswith('PyPhotoshop'):
@@ -34,7 +51,7 @@ if __name__ == '__main__':
     city = Image(filename='city.png')
 
     # lets brighten the imgae
-    brightenImage = adjustBrightness(lake, 1.7)
+    brightenImage = adjustContast(lake, .3)
     brightenImage.write_image('lakeBright.png')
-    brightenImage = adjustBrightness(lake, .5)
+    brightenImage = adjustContast(lake, 1.2)
     brightenImage.write_image('lakeDark.png')
