@@ -1,12 +1,13 @@
 import numpy as np
 import png
+from os import getcwd, chdir
 
 class Image :
     def __init__ (self, x_pixel=0, y_pixel=0, num_channels = 0, filename=''):
         # Here you need to either input the filename or x,y pixels, numchannels
 
-        self.input_path = 'input/'
-        self.output_path = 'output/'
+        self.input_path = '/input/'
+        self.output_path = '/output/'
         if x_pixel and y_pixel and num_channels :
             self.x_pixels = x_pixel
             self.y_pixels = y_pixel
@@ -14,7 +15,7 @@ class Image :
             self.array = np.zeros(x_pixel,y_pixel,num_channels)
 
         elif filename :
-            self.array = self.read_image(self.input_path + filename)
+            self.array = self.read_image(filename)
             self.x_pixels, self.y_pixels, self.num_channels = self.array.shape
 
         else :
@@ -25,7 +26,8 @@ class Image :
         '''Takes the PNG RGB image file and returns the 3D np array with Y,X,channel
         values  and float, gamma is decoded'''
         
-        im = png.Reader(self.input_path + filename).asFloat()
+        # print(getcwd() + self.input_path + filename)
+        im = png.Reader(getcwd() + self.input_path + filename).asFloat()
         resized_image = np.vstack(list(im[2]))
         resized_image .resize(im[1],im[0],3)
         resized_image = resized_image**gamma
@@ -37,12 +39,16 @@ class Image :
         y,x = self.array.shape[0], self.array.shape[1]
         im = im.reshape(y,x*3)
         writer = png.Writer(x,y)
-        with open (self.output_path + output_file_name , 'wb') as f:
+        with open (getcwd() + self.output_path + output_file_name , 'wb') as f:
             writer.write(f,255*(im**(1/gamma)))
 
         self.array.resize(y,x,3)
 
 if __name__ =='__main__' :
+    if not getcwd().endswith('PyPhotoshop'):
+        chdir(getcwd() + '/PyPhotoshop')
+        # print(getcwd())
+
     # This is just for the testing purpose
     im = Image(filename='lake.png')
     im.write_image('test.png')
