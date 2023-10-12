@@ -4,23 +4,36 @@ from time import sleep
 
 def hit(key):
     pg.keyDown(key)
+
+def isCollide(imdata):
+    for i in range (370,500):
+        for j in range(630, 740):
+            if imdata[i,j] >= 160:
+                return True
+    return False
+
     
 def draw():
     '''This we are using for making the square for detecting the position of the obstacle'''
 
+if __name__ == '__main__':
 
-def takeSS():
-    # Grabbing it in grey scale
-    image = ImageGrab.grab().convert('L')
-    # image.show()
-    return image
+    sleep(2)
 
-sleep(2.5)
-image = takeSS()  
-# this is used to convert the image to arraafu frmat
-imdata = image.load()
+    # while True :
+    #     # Taking SS of the screen in grey scale
+    #     image = ImageGrab.grab().convert('L')
+    #     # this is used to convert the image to arraafu frmat
+    #     imdata = image.load()
 
-for i in range (200,225):
-    for j in range(600, 730):
-        imdata[i,j] = 0
-image.show()
+    #     if isCollide(imdata):
+    #         hit('UP')
+        
+
+    image = ImageGrab.grab()
+    imdata = image.load()
+    for i in range (370,500):
+        for j in range(630, 740):
+            imdata[i,j] = 160
+
+    image.show()
