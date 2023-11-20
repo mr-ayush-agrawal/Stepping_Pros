@@ -12,3 +12,4 @@ There are link to the code in my repo as well as there is the link to the video 
 
 | File | Creator |
 |------|---------|
+| [QR Code](QRCode.py) | [Free Code Camp](https://youtu.be/pdy3nh1tn6I?si=AWNsFRekyhpIAfgr&t=4030) |
