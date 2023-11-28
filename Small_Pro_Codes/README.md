@@ -16,3 +16,4 @@ There are link to the code in my repo as well as there is the link to the video 
 | [Rnadom Password Generator](PassGenrator.py) | Self |
 | [Typing Speed](TypingSpeed.py) | Self + [WSCube](https://youtu.be/OKuiyX5k6zg?si=6yc2y-41gpUG-EnH&t=5956) |
 | [Text to Handwriting](Handwriting.py) | [WSCube](https://youtu.be/OKuiyX5k6zg?si=6yc2y-41gpUG-EnH&t=5956) |
+| [Site Connectivity](SiteConnectivity.py) | [FCC](https://youtu.be/pdy3nh1tn6I?si=cNJ8WwBWmFRnbsIH&t=6433) |
