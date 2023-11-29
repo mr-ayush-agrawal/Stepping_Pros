@@ -17,3 +17,5 @@ There are link to the code in my repo as well as there is the link to the video 
 | [Typing Speed](TypingSpeed.py) | Self + [WSCube](https://youtu.be/OKuiyX5k6zg?si=6yc2y-41gpUG-EnH&t=5956) |
 | [Text to Handwriting](Handwriting.py) | [WSCube](https://youtu.be/OKuiyX5k6zg?si=6yc2y-41gpUG-EnH&t=5956) |
 | [Site Connectivity](SiteConnectivity.py) | [FCC](https://youtu.be/pdy3nh1tn6I?si=cNJ8WwBWmFRnbsIH&t=6433) |
+| [Face Detection](Face_Recog.py) | [FCC](https://youtu.be/pdy3nh1tn6I?si=W8tJ5VMq7J2KAYqI&t=8399) |
+| [Web Scrapper](WebScrapper.py) | [FCC](https://youtu.be/pdy3nh1tn6I?si=-XjjjZHDTJEU4yqh&t=9552) |
