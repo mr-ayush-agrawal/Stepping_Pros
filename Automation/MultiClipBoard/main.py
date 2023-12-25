@@ -17,7 +17,7 @@ def save(cb_data):
             json.dump(data,f)
     
     key =  input('Enter a key to save the data: ')
-    cb_data = {key : cb.paste()}
+    cb_data[key] = cb.paste()
     save_items(cb_data)
     print('Data Saved')
 
@@ -31,23 +31,21 @@ def load(data):
         print('Given Key does not exist')
 
 
-def list():
-    pass
+def list(data):
+    print(data)
 
 
 if __name__ =='__main__':
     if (len(sys.argv) == 2):
         comand = sys.argv[1]
         data = load_items()
-        
-        print(data)
-        
+
         if comand in ['SAVE', 'save', 'Save'] :
             save(data)
         elif comand in ['LOAD', 'Load', 'load']:
             load(data)
         elif comand in ['LIST', 'List', 'list']:
-            list()
+            list(data)
         else:
             print('Unknown Command')
         
