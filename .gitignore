@@ -5,3 +5,7 @@ __pycache__
 
 # This file would carry the apikeys
 apiKey.*
+
+# Package of the java script => package.json and package-lock.json
+package*.json
+node_modules
