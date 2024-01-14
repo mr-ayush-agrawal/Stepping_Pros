@@ -1,0 +1,51 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+}
+
+.container {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    background-color: #FFF;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rbga(0, 0, 0, 0.2);
+    border : 2px solid #999;
+    max-width: 500px;
+}
+
+.clock {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    border-radius: 15px;
+    border: 2px solid #CCC;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    padding: 0 10px;
+    margin: 0;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.time, .colon {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
