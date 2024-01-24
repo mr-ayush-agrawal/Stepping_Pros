@@ -1,0 +1,6 @@
+// Source : some Source link
+@function rem($pixels, $context:16) {
+    @return ($pixels / $context) * 1rem
+}
+
+// this is a function which will convert the pixels to rems
