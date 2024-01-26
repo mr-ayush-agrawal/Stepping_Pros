@@ -2,6 +2,8 @@
 const board = document.getElementById('game-board')
 const instructions = document.getElementById('instructions')
 const logo = document.getElementsByClassName('logo')[0]
+const score = document.getElementById('currScore')
+const highScoreText = document.getElementById('highScore')
 
 // Game Variables
 const gridSize = 20;
@@ -11,13 +13,14 @@ let gameInterval;
 let direction = 'r';
 let gameSpeed = 200;
 let start = false;
-
+let highScore = 0;
 
 // Draw Game map -> Draws snake and food
 function draw() {
     board.innerHTML = '';
     drawSnake();
     drawFood();
+    updateScore();
 }
 
 function drawSnake() {
@@ -80,7 +83,7 @@ function move() {
         clearInterval(gameInterval);  // Clearing clear past interval
         gameInterval = setInterval(() => {
             move();
-            // checkCollision();   
+            checkCollision();
             draw();
         }, gameSpeed)
     }
@@ -94,13 +97,12 @@ function startGame() {
     logo.style.display = 'none';
     gameInterval = setInterval(() => {
         move();
-        // checkCollision();   
+        checkCollision();
         draw();
     }, gameSpeed)
 }
 
 function incSpeed() {
-    console.log(gameSpeed)
     if (gameSpeed > 150) {
         gameSpeed -= 5;
     }
@@ -119,11 +121,53 @@ function handleKey(e) {
         startGame()
     }
     switch (e.key) {
-        case 'ArrowUp': direction = 'u'; break;
-        case 'ArrowDown': direction = 'd'; break;
-        case 'ArrowRight': direction = 'r'; break;
-        case 'ArrowLeft': direction = 'l'; break;
+        case 'ArrowUp': if(direction!='d') direction = 'u'; break;
+        case 'ArrowDown': if(direction!='u') direction = 'd'; break;
+        case 'ArrowRight': if(direction!='l') direction = 'r'; break;
+        case 'ArrowLeft': if(direction!='r') direction = 'l'; break;
     }
+}
+
+function checkCollision() {
+    const head = snake[0]
+    if (head.x < 1 || head.x > gridSize || head.y > gridSize || head.y < 1)
+        resetGame();
+
+    for (let i = 1; i < snake.length; i++) {
+        if (head.x == snake[i].x && head.y == snake[i].y)
+            resetGame()
+    }
+}
+
+function resetGame() {
+    // updateScore();
+    updateHigh();
+    stopGame();
+    gameSpeed = 200;
+    snake = [{ x: 10, y: 10 }];
+    food = generateFood();
+    direction = 'r';
+}
+
+function updateScore() {
+    currScore = snake.length - 1;
+    score.innerHTML = currScore.toString().padStart(3, " ");
+}
+
+function updateHigh() {
+    const currScore = snake.length - 1
+    if (currScore > highScore)
+        highScore = currScore
+
+    highScoreText.textContent = highScore.toString()
+    highScoreText.style.display = 'block'
+}
+
+function stopGame() {
+    clearInterval(gameInterval)
+    start = false;
+    instructions.style.display = 'block'
+    logo.style.display = 'block'
 }
 
 // TEST
