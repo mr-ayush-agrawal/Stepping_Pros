@@ -1,3 +1,7 @@
+:root{
+    --grid-size : 20;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -15,8 +19,8 @@ body, .snake {
 #game-board {
     border-radius: 100px;
     display: grid;
-    grid-template-columns: repeat(20, 20px);
-    grid-template-rows: repeat(20, 20px);
+    grid-template-columns: repeat(var(--grid-size), 20px);
+    grid-template-rows: repeat(var(--grid-size), 20px);
     margin: 5px;
 }
 
@@ -45,6 +49,9 @@ body, .snake {
     text-transform: capitalize;
     padding: 30px;
     margin: 0;
+    font-size: 26px;
+    margin-top: 8px;
+    font-weight: bold;
 }
 
 .scores {
@@ -82,5 +89,4 @@ body, .snake {
 
 .logo {
     position: absolute;
-
 }
