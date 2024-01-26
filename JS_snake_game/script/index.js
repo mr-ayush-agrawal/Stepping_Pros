@@ -42,10 +42,11 @@ function setPosition(ele, pos) {
 }
 
 function drawFood() {
-    const foodEle = createEle('div', 'food');
-    setPosition(foodEle, food);
-    board.appendChild(foodEle);
-
+    if (start) {
+        const foodEle = createEle('div', 'food');
+        setPosition(foodEle, food);
+        board.appendChild(foodEle);
+    }
 }
 
 function generateFood() {
@@ -72,35 +73,52 @@ function move() {
             break;
     }
     snake.unshift(head);
+
     if (head.x === food.x && head.y === food.y) {
         food = generateFood()
+        incSpeed()
+        clearInterval(gameInterval);  // Clearing clear past interval
+        gameInterval = setInterval(() => {
+            move();
+            // checkCollision();   
+            draw();
+        }, gameSpeed)
     }
     else
         snake.pop();
-
-    clearInterval();  // Clearing clear past interval
 }
 
 function startGame() {
     start = true;
     instructions.style.display = 'none';
     logo.style.display = 'none';
-    incSpeed()
-    gameInterval = setInterval( ()=> {
+    gameInterval = setInterval(() => {
         move();
         // checkCollision();   
         draw();
     }, gameSpeed)
 }
 
+function incSpeed() {
+    console.log(gameSpeed)
+    if (gameSpeed > 150) {
+        gameSpeed -= 5;
+    }
+    else if (gameSpeed > 100)
+        gameSpeed -= 3;
+    else if (gameSpeed > 50)
+        gameSpeed -= 2;
+    else if (gameSpeed > 25)
+        gameSpeed -= 1;
+}
 
 
 // KeyPress event listner
 function handleKey(e) {
-    if((!start && e.code === 'Space') || (!start && e.key  === ' ')){
+    if ((!start && e.code === 'Space') || (!start && e.key === ' ')) {
         startGame()
     }
-    switch(e.key){
+    switch (e.key) {
         case 'ArrowUp': direction = 'u'; break;
         case 'ArrowDown': direction = 'd'; break;
         case 'ArrowRight': direction = 'r'; break;
